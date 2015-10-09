@@ -36,12 +36,30 @@
 //      - Generate insert queries for inserting information into tables.
 //      - Write lines to an .sql output file.
 
-#include <stdio.h>
+#include <cstdio>
 
 int
 main()
 {
     // Variables go here.
+    FILE *i_file, *o_file;
+    std::string tables[ 4 ];
+    std::string facultyInfo[ 5 ];
+    std::string studentInfo[ 18 ];
+    std::string classInfo[ 12 ];
+    std::string enrollInfo[ 30 ];
+    // 30 + 12 + 18 + 5 + ( 4 to drop ) + ( 4 to insert ) = 73
+    std::string queries[ 73 ];
     
+    i_file = fopen( "information.txt", "r" );
 
+    if ( i_file == NULL )
+    {
+        fprintf( STDERR, "Failed to open file." );
+        exit( 1 );
+    }
+
+    fscanf( i_file, "%s", tables[ 0 ] );
+
+    return 0;
 }
