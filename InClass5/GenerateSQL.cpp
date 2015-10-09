@@ -35,6 +35,9 @@
 //          - Again, probably shouldn't need an if statement.
 //      - Generate insert queries for inserting information into tables.
 //      - Write lines to an .sql output file.
+//
+//  NOTE: I DO KNOW THAT THIS IS PRETTY MUCH JUST C CODE. I STILL USE CPP HEADERS
+//      CUZ REASONS. >:(
 
 #include <cstdio>
 
@@ -43,23 +46,25 @@ main()
 {
     // Variables go here.
     FILE *i_file, *o_file;
-    std::string tables[ 4 ];
-    std::string facultyInfo[ 5 ];
-    std::string studentInfo[ 18 ];
-    std::string classInfo[ 12 ];
-    std::string enrollInfo[ 30 ];
+    char tables[ 4 ][ 20 ];
+    char facultyInfo[ 5 ][ 20 ];
+    char studentInfo[ 18 ][ 20 ];
+    char classInfo[ 12 ][ 20 ];
+    char enrollInfo[ 30 ][ 20 ];
     // 30 + 12 + 18 + 5 + ( 4 to drop ) + ( 4 to insert ) = 73
-    std::string queries[ 73 ];
+    char queries[ 73 ][ 300 ];
     
     i_file = fopen( "information.txt", "r" );
 
     if ( i_file == NULL )
     {
-        fprintf( STDERR, "Failed to open file." );
-        exit( 1 );
+        printf( "Failed to open file." );
+        return 1;
     }
 
-    fscanf( i_file, "%s", tables[ 0 ] );
+    fscanf( i_file, "%s", &tables[ 0 ] );
+    
+    for ( int i = 0; i < 
 
     return 0;
 }
